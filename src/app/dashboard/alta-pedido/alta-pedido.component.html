@@ -1,0 +1,69 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-8">
+      <form #validForm="ngForm">
+
+        <div class="col-6">
+          <label for="selecCliente" class="form-label">Cliente</label>
+          <select required class="form-select" name="idCliente" [(ngModel)]="pedido.idCliente">
+            <option *ngFor="let cliente of listClientes" [ngValue]="cliente.id">
+              {{cliente.nombre}}
+            </option>
+          </select>
+        </div>
+        <div class="col-6">
+          <label for="inputFecha" class="form-label">Fecha</label>
+          <input type="date" class="form-control" id="inputFecha" name="fecha" [(ngModel)]="pedido.fecha" >
+        
+        </div>
+
+        <!-- <div class="col-4">
+          <label for="selectProdcuto" class="form-label">Producto</label>
+          <select required class="form-select" name="idProducto" [(ngModel)]="detalle.idProducto">
+            <option *ngFor="let producto of listProductos" [ngValue]="producto.id">
+              {{producto.nombre}}
+            </option>
+          </select>
+        </div> -->
+        <!-- <div class="col-4">
+          <label for="inputCantidad" class="form-label">Cantidad</label>
+          <input required type="number" class="form-control" id="inputCantidad" name="cantidad"
+            [(ngModel)]="detalle.cantidad">
+        </div>
+        <div class="col-4">
+          <button>Agregar Detalle</button>
+        </div> -->
+        <!-- <div class="sm-3">
+          <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Codigo de Producto</th>
+                    <th >Cantidad</th>
+                    <th >Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let detalle of  detalles">
+                    <td>{{detalle.idProducto }}</td>
+                    <td>{{ detalle.cantidad }}</td>
+                    <td>
+                        x
+                    </td>          
+                </tr>
+            </tbody>
+        </table>
+        </div> -->
+        <div class="row">
+          <div class="col-6">
+            <button type="submit" class="btn btn-primary" (click)="agregarPedido()"
+              [disabled]="validForm.invalid">Guardar Pedido</button>
+          </div>
+          <div class="col-6">
+            <button type="submit" class="btn btn-primary" (click)="cancelar()">Cancelar</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
